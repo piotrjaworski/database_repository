@@ -1,9 +1,11 @@
 # DatabaseRepository
 
 Welcome to the DatabaseRepository gem!
-This gem was written to provide an extra layer to Rails applications called **repositories**.
+This gem was written to provide an extra layer to your Ruby applications called **repositories**.
 Repositories are used to interact with our database - execute all queries.
 Thanks to them, you don't need to write anymore **ActiveRecord code** inside your models, controllers, and services - everything is much simpler to maintain!
+
+This gem requires just **ActiveRecord**, not **Rails** - feel free to use it without Rails in your Rack applications!
 
 ## Installation
 
@@ -23,7 +25,7 @@ Or install it yourself as:
 
 ## How to create a repository
 
-To create a new repository, you just need to run a Rails generator:
+To create a new repository, you just need to run a Rails generator (if you use Rails):
 
     $ rails generate database_repository:repository your_repository_name
 
@@ -39,6 +41,10 @@ You can also add the new repository to app/repositories, your class should inher
 class UserRepository < DatabaseRepository::Base
 end
 ```
+
+## Dependencies
+
+- ActiveRecord >= 3.2
 
 ## Usage
 
@@ -57,7 +63,7 @@ By default, a repository maps to a model by a repository's name, for example:
 If you want to change a model, you can redefine a class name:
 ```ruby
 class UsersRepository < DatabaseRepository::Base
-    entity 'Model'
+  entity 'Model'
 end
 ```
 
@@ -136,11 +142,11 @@ calls ActiveRecord **Model.destroy_all** method.
 If you want to add your methods, just write a regular ActiveRecord code, for example:
 ```ruby
 class UserRepository < DatabaseRepository::Base
-    def most_recent_by_name(name:, limit: 5)
-        where(name: name).
-        order(created_at: :desc).
-        limit(limit)
-    end
+  def most_recent_by_name(name:, limit: 5)
+    where(name: name).
+    order(created_at: :desc).
+    limit(limit)
+  end
 end
 ```
 
@@ -150,6 +156,10 @@ UserRepository.new.most_recent_by_name(name: 'Piotr Jaworski', limit: 10)
 ```
 
 Voila! That's all!
+
+## TODO
+
+- Add Sequel support
 
 ## Development
 
