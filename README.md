@@ -1,6 +1,9 @@
 # DatabaseRepository
 
+[![Gem Version](https://badge.fury.io/rb/database_repository.svg)](https://badge.fury.io/rb/database_repository)
 [![Build Status](https://travis-ci.org/piotrjaworski/database_repository.svg?branch=master)](https://travis-ci.org/piotrjaworski/database_repository)
+[![Maintainability](https://api.codeclimate.com/v1/badges/c4b1e02d0a40e9576cea/maintainability)](https://codeclimate.com/github/piotrjaworski/database_repository/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/c4b1e02d0a40e9576cea/test_coverage)](https://codeclimate.com/github/piotrjaworski/database_repository/test_coverage)
 
 Welcome to the DatabaseRepository gem!
 This gem was written to provide an extra layer to your Ruby applications called **repositories**.
