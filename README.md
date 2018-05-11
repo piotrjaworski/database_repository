@@ -72,74 +72,95 @@ class UsersRepository < DatabaseRepository::Base
 end
 ```
 
-#### Preimplemented methods:
+### Preimplemented methods:
 - `all`
+
 calls ActiveRecord **Model.all** method.
 
 - `build(attributes)`
+
 calls ActiveRecord **Model.new(attributes)** method.
 
 - `find(id)`
+
 calls ActiveRecord **Model.find(id)** method.
 Raises `DatabaseRepository::RecordNotFound` if a record is not found.
 
 - `find_by(id)`
+
 calls ActiveRecord **Model.find_by(id)** method.
 
 - `find_or_initialize_by(id)`
+
 calls ActiveRecord **Model.find_or_initialize_by(id)** method.
 
 - `find_or_create_by(attributes)`
+
 calls ActiveRecord **Model.find_or_create_by(attributes)** method.
 
 - `find_or_create_by!(attributes)`
+
 calls ActiveRecord **Model.find_or_create_by!(attributes)** method. Raises `DatabaseRepository::RecordInvalid` if a record is invalid.
 
 - `first(id)`
+
 calls ActiveRecord **Model.first(id)** method.
 
 - `first!(id)`
+
 calls ActiveRecord **Model.first!(id)** method.
 Raises `DatabaseRepository::RecordNotFound` if a record is not found.
 
 - `last(id)`
+
 calls ActiveRecord **Model.last(id)** method.
 
 - `last!(id)`
+
 calls ActiveRecord **Model.last!(id)** method.
 Raises `DatabaseRepository::RecordNotFound` if a record is not found.
 
 - `create(attributes)`
+
 calls ActiveRecord **Model.create(attributes)** method.
 
 - `create!(attributes)`
+
 calls ActiveRecord **Model.create!(attributes)** method.
 Raises `DatabaseRepository::RecordInvalid` if a record is invalid.
 
 - `update(id, attributes)`
+
 calls ActiveRecord **Model.update(id, attributes)** method.
 
 - `update!(id, attributes)`
+
 calls ActiveRecord **Model.update!(id, attributes)** method.
 Raises `DatabaseRepository::RecordInvalid` if a record is invalid.
 
 - `update_all(attributes)`
+
 calls ActiveRecord **Model.update_all(attributes)** method.
 
 - `delete(id)`
+
 calls ActiveRecord **Model.delete(id)** method.
 
 - `destroy(id)`
+
 calls ActiveRecord **Model.destoy(id)** method.
 
 - `destroy!(id)`
+
 calls ActiveRecord **Model.destroy!(id)** method.
 Raises `DatabaseRepository::RecordNotDestroyed` if a record cannot be destroyed.
 
 - `delete_all`
+
 calls ActiveRecord **Model.delete_all** method.
 
 - `destroy_all`
+
 calls ActiveRecord **Model.destroy_all** method.
 
 ### Your own methods
