@@ -1,5 +1,7 @@
 # DatabaseRepository
 
+[![Build Status](https://travis-ci.org/piotrjaworski/database_repository.svg?branch=master)](https://travis-ci.org/piotrjaworski/database_repository)
+
 Welcome to the DatabaseRepository gem!
 This gem was written to provide an extra layer to your Ruby applications called **repositories**.
 Repositories are used to interact with our database - execute all queries.
