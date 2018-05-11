@@ -2,11 +2,12 @@ require 'spec_helper'
 require 'active_record'
 require File.expand_path('../../../lib/database_repository/base', __FILE__)
 
-class User < ActiveRecord::Base; end
-class UserRepository < DatabaseRepository::Base; end
+RSpec.describe DatabaseRepository::Base do
 
-RSpec.describe UserRepository do
-  let(:repository) { described_class.new }
+  class User < ActiveRecord::Base; end
+  class UserRepository < DatabaseRepository::Base; end
+
+  let(:repository) { UserRepository.new }
 
   let(:id) { 1 }
   let(:attributes) { { a: 1, b: 2 } }
@@ -278,6 +279,21 @@ RSpec.describe UserRepository do
     it 'calls ActiveRecord destroy_all' do
       expect(User).to receive(:destroy_all)
       subject
+    end
+  end
+
+  describe '.entity' do
+    class Model < ActiveRecord::Base; end
+
+    before do
+      class UserRepository < DatabaseRepository::Base
+        entity 'Model'
+      end
+    end
+
+    it 'sets an entity class name and calls methods by an entity class name' do
+      expect(Model).to receive(:all)
+      repository.all
     end
   end
 end

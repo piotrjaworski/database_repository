@@ -4,6 +4,14 @@ module DatabaseRepository
   class RecordNotDestroyed < StandardError; end
 
   class Base
+    class << self
+      attr_accessor :entity_class_name
+
+      def entity(entity_class_name)
+        @entity_class_name = entity_class_name
+      end
+    end
+
     def all
       entity.all
     end
@@ -109,7 +117,7 @@ module DatabaseRepository
     private
 
     def entity
-      @_entity ||= Object.const_get(self.class.name.match(/(.*)Repository/)[1])
+      @_entity ||= Object.const_get(self.class.entity_class_name || self.class.name.match(/(.*)Repository/)[1])
     end
   end
 end
