@@ -148,9 +148,9 @@ If you want to add your methods, just write a regular ActiveRecord code, for exa
 ```ruby
 class UserRepository < DatabaseRepository::Base
   def most_recent_by_name(name:, limit: 5)
-    where(name: name).
-    order(created_at: :desc).
-    limit(limit)
+    entity.where(name: name).
+      order(created_at: :desc).
+      limit(limit)
   end
 end
 ```
