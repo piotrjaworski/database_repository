@@ -44,8 +44,8 @@ module DatabaseRepository
       raise DatabaseRepository::RecordInvalid, e.message
     end
 
-    def first
-      entity.first
+    def first(limit = nil)
+      entity.first(limit)
     end
 
     def first!
@@ -54,8 +54,8 @@ module DatabaseRepository
       raise DatabaseRepository::RecordNotFound, e.message
     end
 
-    def last
-      entity.last
+    def last(limit = nil)
+      entity.last(limit)
     end
 
     def last!

@@ -102,22 +102,22 @@ calls ActiveRecord **Model.find_or_create_by(attributes)** method.
 
 calls ActiveRecord **Model.find_or_create_by!(attributes)** method. Raises `DatabaseRepository::RecordInvalid` if a record is invalid.
 
-- `first(id)`
+- `first(limit = nil)`
 
-calls ActiveRecord **Model.first(id)** method.
+calls ActiveRecord **Model.first(limit = nil)** method.
 
-- `first!(id)`
+- `first!`
 
-calls ActiveRecord **Model.first!(id)** method.
+calls ActiveRecord **Model.first!** method.
 Raises `DatabaseRepository::RecordNotFound` if a record is not found.
 
-- `last(id)`
+- `last(limit = nil)`
 
-calls ActiveRecord **Model.last(id)** method.
+calls ActiveRecord **Model.last(limit = nil)** method.
 
-- `last!(id)`
+- `last!`
 
-calls ActiveRecord **Model.last!(id)** method.
+calls ActiveRecord **Model.last!** method.
 Raises `DatabaseRepository::RecordNotFound` if a record is not found.
 
 - `create(attributes)`

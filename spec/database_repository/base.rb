@@ -97,11 +97,24 @@ RSpec.describe DatabaseRepository::Base do
   end
 
   describe '#first' do
-    subject { repository.first }
+    let(:limit) { 5 }
 
-    it 'calls ActiveRecord first' do
-      expect(User).to receive(:first)
-      subject
+    context 'with limit attribute' do
+      subject { repository.first(limit) }
+
+      it 'calls ActiveRecord first' do
+        expect(User).to receive(:first).with(limit)
+        subject
+      end
+    end
+
+    context 'without limit attribute' do
+      subject { repository.first }
+
+      it 'calls ActiveRecord first' do
+        expect(User).to receive(:first).with(nil)
+        subject
+      end
     end
   end
 
@@ -125,11 +138,24 @@ RSpec.describe DatabaseRepository::Base do
   end
 
   describe '#last' do
-    subject { repository.last }
+    let(:limit) { 5 }
 
-    it 'calls ActiveRecord last' do
-      expect(User).to receive(:last)
-      subject
+    context 'with limit attribute' do
+      subject { repository.last(limit) }
+
+      it 'calls ActiveRecord last' do
+        expect(User).to receive(:last).with(limit)
+        subject
+      end
+    end
+
+    context 'without limit attribute' do
+      subject { repository.last }
+
+      it 'calls ActiveRecord last' do
+        expect(User).to receive(:last).with(nil)
+        subject
+      end
     end
   end
 
